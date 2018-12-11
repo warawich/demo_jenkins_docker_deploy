@@ -9,7 +9,7 @@ node{
         withCredentials([usernamePassword(credentialsId: 'DockerHub2', passwordVariable: 'DockerPass', usernameVariable: 'DockerUser')]) {
             sh "docker login -u ${DockerUser} -p ${DockerPass}"
         }
-        sh 'docker tag wichnode:1.0.0 wichtrue/wich_node:1.0.0'
+        sh 'docker tag wich_node:1.0.0 wichtrue/wich_node:1.0.0'
         sh 'docker push wichtrue/wich_node:1.0.0'
     }
 }
