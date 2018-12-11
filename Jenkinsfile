@@ -6,9 +6,9 @@ node{
         sh 'docker build -t wich_node:1.0.0 .'
     }
     stage('Push to Docker Hub'){
-        withCredentials([string(credentialsId: 'DockerHub2', passwordVariable: 'DockerPass', usernameVariable: 'DockerUser')]) {
+        withCredentials([usernamePassword(credentialsId: 'DockerHub2', passwordVariable: 'DockerPass', usernameVariable: 'DockerUser')]) {
             sh "docker login -u ${DockerUser} -p ${DockerPass}"
         }
-        sh 'docker push wich_node:1.0.0'
+        sh 'docker push wichtrue/wich_node:1.0.0'
     }
 }
