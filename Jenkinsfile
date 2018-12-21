@@ -15,7 +15,7 @@ node{
     stage('Deploy Container on Dev Server'){
         def cmd = 'docker run -it -d --rm -p 3002:3000 --name test wichtrue/wich_node:1.0.0'
         def rmcmd = 'docker rm -f test'
-        sh "ssh root@192.168.1.125 ${cmd}" 
+        sh "ssh root@192.168.1.125 ${rmcmd}" 
         sh "ssh root@192.168.1.125 ${cmd}"
     }
        stage('Deploy Git file on Dev Server'){
