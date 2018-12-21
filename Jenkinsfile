@@ -18,6 +18,7 @@ node{
     }
     stage('Deploy Git file on Dev Server'){
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '129104b3-9f7a-48b7-85af-1e3b7150ba28', url: 'https://github.com/warawich/pipelinetest']]])
-        sh "${PWD}/deploy.sh"
+        sh 'pwd'
+        sh "cd ; ./deploy.sh"
     }
 }
